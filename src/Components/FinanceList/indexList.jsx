@@ -6,7 +6,7 @@ export const IndexList = ({id,descricao,tipo,valor,delItem}) =>{
             <p>{tipo}</p>
             </div>
             <div className="div__2">
-            <p>R$: {valor}</p>
+            <p>R$: {valor},00</p>
             <button type="button" onClick={() =>{delItem(id)}}>Excluir</button>
             </div>
         </li>

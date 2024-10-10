@@ -16,16 +16,26 @@ export const Principal = () => {
         let xx=[...data,{id: crypto.randomUUID(), descricao: x, valor: y, tipo: z}]
         setData(xx)
     }
-    const totalValor = data.reduce((item,qtd) =>{
-        let x = parseInt(qtd.valor)
-        return item + x
-    },0)
     const deletItem = (id) =>{
         let x = data.filter(element =>{
             return element.id !== id
         })
         setData(x)
     }
+    let apenasEntrada = data.filter(element =>{
+        return element.tipo == "Entrada"
+    })
+    let totalEntrada = apenasEntrada.reduce((i,q) =>{
+        return i + q.valor
+    },0)
+    let apenasDespesa = data.filter(element =>{
+        return element.tipo == "Despesa"
+    })
+    let totalDespesa = apenasDespesa.reduce((i,q) =>{
+        return i + q.valor
+    },0)
+    let totalValores = totalEntrada - totalDespesa;
+
 
     return(
         <>
@@ -33,7 +43,7 @@ export const Principal = () => {
             <div className="div__main">
                 <div className="div__form__total">
                 <FinanceForm descricao={descricao} setDescricao={setDescricao} valor={valor} setValor={setValor} tipo={tipo} setTipo={setTipo} saveData={saveData}/>
-                <Total total={totalValor}></Total>
+                <Total total={totalValores}></Total>
                 </div>
                 <div className="div__list">
                 <FinanceList list={data} deletItem={deletItem} delItem={deletItem}/>
