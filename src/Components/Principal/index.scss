@@ -1,0 +1,27 @@
+.div__main{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: clamp(2rem, -1.863rem + 6.867vw, 4rem);
+    padding-left: clamp(0.5rem, -15.916rem + 29.185vw, 9rem);
+    padding-top: 1rem;
+}
+@media (max-width:800px) {
+    .div__main{
+        display: flex;
+        flex-direction: column;
+        padding-left: 0rem;
+        padding-top: 1.5rem;
+        gap: 1.5rem;
+    }
+}
+@media (max-width:500px) {
+    .div__main{
+        display: flex;
+        flex-direction: column;
+        flex-direction: column;
+        padding-left: 0rem;
+        padding-top: 1.5rem;
+        gap: 1.5rem;
+    }
+}
