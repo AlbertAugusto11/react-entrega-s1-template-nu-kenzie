@@ -11,7 +11,7 @@ export const Principal = () => {
     const [tipo, setTipo] = useState("Escolha Aqui");
     const saveData = () =>{
         let x = descricao
-        let y = valor
+        let y = parseFloat(valor.replace(",","."))
         let z = tipo
         let xx=[...data,{id: crypto.randomUUID(), descricao: x, valor: y, tipo: z}]
         setData(xx)
@@ -35,8 +35,7 @@ export const Principal = () => {
         return i + q.valor
     },0)
     let totalValores = totalEntrada - totalDespesa;
-
-
+    
     return(
         <>
             <Header />
