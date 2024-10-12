@@ -14,7 +14,13 @@ export const Principal = () => {
         let y = parseFloat(valor.replace(",","."))
         let z = tipo
         let xx=[...data,{id: crypto.randomUUID(), descricao: x, valor: y, tipo: z}]
-        setData(xx)
+        onlyValid(xx)
+    }
+    const onlyValid = (list) => {
+        let x = list.filter(element =>{
+            return element.tipo !== "Escolha Aqui"
+        })
+        setData(x)
     }
     const deletItem = (id) =>{
         let x = data.filter(element =>{
@@ -45,7 +51,7 @@ export const Principal = () => {
                 <Total total={totalValores}></Total>
                 </div>
                 <div className="div__list">
-                <FinanceList list={data} deletItem={deletItem} delItem={deletItem}/>
+                <FinanceList list={data} delItem={deletItem}/>
                 </div>
             </div>
         </>

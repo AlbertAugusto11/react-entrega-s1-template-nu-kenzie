@@ -13,8 +13,8 @@ export const FinanceForm = ({descricao,setDescricao,valor,setValor,tipo,setTipo,
             <input id="nome" type="text" value={descricao}  onChange={(e) => setDescricao(e.target.value)} placeholder="Digite aqui sua descrição"/>
             <span>Ex: Compra de Roupas</span>
 
-            <label htmlFor="valor">{`Valor (R$)`}</label>
-            <input id="valor" type="text" value={valor} onChange={(e) => setValor(e.target.value)} placeholder="Ex: 150,89" />
+            <label htmlFor="valor">Valor R$:</label>
+            <input id="valor" type="text" value={valor} onChange={(e) => setValor(e.target.value)} placeholder="Ex: 150,89"/>
 
             <label htmlFor="tipo">Tipo de Valor</label>
             <select  id="tipo" value={tipo} onChange={(e) => {setTipo(e.target.value)}}>
