@@ -3,12 +3,21 @@ import FinanceForm from "../FinanceForm"
 import FinanceList from "../FinanceList"
 import Total from "../Total"
 import "./index.scss"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+
 export const Principal = () => {
-    const [data, setData] = useState([])
+    const [data,setData] = useState(() => {
+        const recuperaLocal = localStorage.getItem('@ResumoFinanceiro');
+        return recuperaLocal ? JSON.parse(recuperaLocal) : [];
+      });
     const [descricao, setDescricao] = useState("")
     const [valor, setValor] = useState("");
     const [tipo, setTipo] = useState("Escolha Aqui");
+
+    useEffect(() =>{
+        localStorage.setItem("@ResumoFinanceiro", JSON.stringify(data))
+    },[data])
+
     const saveData = () =>{
         let x = descricao
         let y = parseFloat(valor.replace(",","."))
