@@ -47,6 +47,9 @@ ul{
                 border: none;
                 width: 4rem;
                 height: 1.5rem;
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
     }
