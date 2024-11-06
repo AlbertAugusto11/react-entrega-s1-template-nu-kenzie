@@ -6,7 +6,7 @@ export const IndexList = ({id,descricao,tipo,valor,delItem}) =>{
             <p>{tipo}</p>
             </div>
             <div className="div__2">
-            <p>R$: {valor.toLocaleString("de-DE")} reais</p>
+            <p>R$: {valor.toLocaleString("de-DE")}</p>
             <button type="button" onClick={() =>{delItem(id)}}>Excluir</button>
             </div>
         </li>
